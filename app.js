@@ -1,24 +1,25 @@
+const express = require('express')
+const app = express()
+const port = 8080
 
-//localhost:8080
-console.log('hello World') ;
+// serve static content
 
-const http = require('http');
-const { Http2ServerRequest } = require('http2');
+//app.use(express.static ('public')) ;
 
-http.createServer (( reg, res ) => {
 
-    res.setHeader('Content-Disposition', 'attachment; filename=list.csv')
-    res.writeHead(200, {'Content-Type': 'application/json'})
+app.get('/',  (req, res) => {
+  res.send('Home page') ; 
+})
 
-    res.write('id, nombre \n');
-    res.write('1, Fernando \n');
-    res.write('2, Maria \n');
-    res.write('3, Juan \n');
-    res.write('4, Pedro  \n');
-    res.end();
+app.get('/hello-world',  (req, res) => {
+    res.send('Hello World in route') ;
+  })
 
-} )
 
-.listen(8080)
+  app.get('*',  (req, res) => {
+    res.send('404 | Page not found') ;
+  })
 
-console.log('listening on the port', 8080) ;
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`) ;
+  })
