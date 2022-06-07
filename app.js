@@ -7,14 +7,14 @@ const { Http2ServerRequest } = require('http2');
 
 http.createServer (( reg, res ) => {
 
+    res.setHeader('Content-Disposition', 'attachment; filename=list.csv')
     res.writeHead(200, {'Content-Type': 'application/json'})
 
-    const person = {
-        id : 1,
-        FullName : 'Johan'
-    }
-
-    res.write( JSON.stringify ( person ))
+    res.write('id, nombre \n');
+    res.write('1, Fernando \n');
+    res.write('2, Maria \n');
+    res.write('3, Juan \n');
+    res.write('4, Pedro  \n');
     res.end();
 
 } )
