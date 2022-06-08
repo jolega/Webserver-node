@@ -2,8 +2,17 @@ const express = require('express')
 const app = express()
 const port = 8080
 
+// TODO: require('hbs')
+
+app.set('view engine', 'hbs')
+
+
 // server static content like =  / 
 app.use(express.static ('public')) ;
+
+app.get('/',  (req, res) => {
+  res.render('home') ;
+})
 
 //pad 
 app.get('/hello-world',  (req, res) => {
