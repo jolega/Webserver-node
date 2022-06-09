@@ -1,11 +1,13 @@
 # Webserver-node
 
 
-# run the program
-
+# run the program dev
 node app.js  or nodemon app
-
 
 # localhost request
 
-http://localhost:8080/
+http://localhost:8081/
+
+# production 
+npm start
+
